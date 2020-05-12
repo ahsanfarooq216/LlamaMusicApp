@@ -9,6 +9,40 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+
+
+        <RelativePanel>
+
+            <Button Name="BackButton"
+
+                    RelativePanel.RightOf="HamburgerButton"
+
+                    FontFamily="Segoe MDL2 Assets"
+
+                    Content="&#xE0A6;" Width="45" />
+            <Button x:Name="HamburgerButton"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets"
+                    Content="&#xE700;" Width="45"  />
+
+        </RelativePanel>
+
+        <SplitView Grid.Row="1" Name="MySplitView"
+                   DisplayMode="CompactInline"
+                   CompactPaneLength="45"
+                   OpenPaneLength="200" >
+
+        </SplitView>
+        <SplitView Grid.Row="1">
+            <SplitView.Pane>
+                <Grid/>
+            </SplitView.Pane>
+            <Grid/>
+        </SplitView>
     </Grid>
 </Page>
