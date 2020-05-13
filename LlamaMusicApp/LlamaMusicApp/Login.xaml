@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="LlamaMusicApp.BlankPage1"
+    x:Class="LlamaMusicApp.Login"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:LlamaMusicApp"
@@ -14,8 +14,19 @@
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Image Source="Assets/LlamaMusicBlue.png" Width="200" Height="200" Margin="0,0,0,5" />
-            <TextBox x:Name="UserNameBox" PlaceholderText="Username" Width="200" Margin="5,5,5,5" />
-            <PasswordBox x:Name="PasswordBox" PlaceholderText="Password" Width="200" Margin="5,5,5,5" />
+            <TextBox x:Name="UserNameBox" PlaceholderText="Username" Width="200" Margin="0,5,0,5" />
+            <PasswordBox x:Name="PasswordBox" PlaceholderText="Password" Width="200" Margin="0,5,0,5" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
+                <StackPanel Orientation="Vertical">
+                    <Button Name="SignInButton" FontSize="48" FontFamily="Segoe MDL2 Assets" Content="&#xE748;" Margin="5" Click="SignInButton_Click" />
+                    <TextBlock Text="Sign In" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Button Name="SignUpButton" FontSize="48" FontFamily="Segoe MDL2 Assets" Content="&#xE8FA;" Margin="5" Click="SignUpButton_Click"/>
+                    <TextBlock Text="Sign Up" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+            <TextBlock x:Name="Error" Margin="4" />
         </StackPanel>
     </Grid>
 </Page>
