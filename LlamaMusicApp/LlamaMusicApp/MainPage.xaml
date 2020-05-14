@@ -8,41 +8,56 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-
-
-        <RelativePanel>
-
-            <Button Name="BackButton"
-
-                    RelativePanel.RightOf="HamburgerButton"
-
-                    FontFamily="Segoe MDL2 Assets"
-
-                    Content="&#xE0A6;" Width="45" />
-            <Button x:Name="HamburgerButton"
-                    RelativePanel.AlignLeftWithPanel="True"
-                    FontFamily="Segoe MDL2 Assets"
-                    Content="&#xE700;" Width="45"  />
-
-        </RelativePanel>
-
-        <SplitView Grid.Row="1" Name="MySplitView"
-                   DisplayMode="CompactInline"
-                   CompactPaneLength="45"
-                   OpenPaneLength="200" >
-
-        </SplitView>
-        <SplitView Grid.Row="1">
+    <Grid Background="Black">
+        <SplitView Name="MenuSplitView" 
+                   DisplayMode="CompactOverlay" 
+                   IsPaneOpen="False" 
+                   CompactPaneLength="50" 
+                   OpenPaneLength="150" 
+                   Margin="0 0 10 0">
             <SplitView.Pane>
-                <Grid/>
+                <StackPanel Background="Gray">
+                    <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE700;" Background="Transparent" Click="Button_Click"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE80F;" Background="Transparent"/>
+                        <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE8D6;" Background="Transparent"/>
+                        <TextBlock Text="Playlist" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE710;" Background="Transparent"/>
+                        <TextBlock Text="Add Music" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE721;" Background="Transparent"/>
+                        <TextBlock Text="Search" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE8FA;" Background="Transparent"/>
+                        <TextBlock Text="Sign In" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    
+                </StackPanel>
             </SplitView.Pane>
-            <Grid/>
         </SplitView>
+        
     </Grid>
+    
+    
+    
+    
 </Page>
