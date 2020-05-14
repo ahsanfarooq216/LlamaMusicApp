@@ -26,5 +26,10 @@ namespace LlamaMusicApp.Models
             Artist = artist;
             Path = path;
         }
+
+        public Song(string path)
+        {
+            Path = path;
+        }
     }
 }

@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace LlamaMusicApp.Models
 {
-    public class MusicCollection
+    public class Playlist
     {
         public string Name { get; set; }
-        public List<Song> Songs { get; set; }
+        public List<Song> PlaylistSongs { get; set; }
         //Methods
         public void addSong(Song song)
         {
-            Songs.Add(song);
+            PlaylistSongs.Add(song);
         }
         public void removeSong(Song song)
         {
-            Songs.Remove(song);
+            PlaylistSongs.Remove(song);
         }
         //Constructors
-        public MusicCollection(string name)
+        public Playlist(string name)
         {
             Name = name;
-            Songs = new List<Song>();
+            PlaylistSongs = new List<Song>();
         }
     }
 }

@@ -11,11 +11,13 @@ namespace LlamaMusicApp.Models
     {
         public string Name { get; private set; }
         public string Password { get; private set; }
+        public List<Song> AllSongs { get; set; }
 
         public User(string name, string password)
         {
             Name = name;
             Password = password;
+            AllSongs = new List<Song>();
         }
     }
 }
