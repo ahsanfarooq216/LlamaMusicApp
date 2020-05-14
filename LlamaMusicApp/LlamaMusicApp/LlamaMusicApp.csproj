@@ -139,6 +139,8 @@
     <Content Include="Assets\LlamaMusicBlue.png" />
     <Content Include="Assets\LlamaMusicLogo.png" />
     <Content Include="Assets\Sample Music\Derek_Clegg_-_Annalise.mp3" />
+    <Content Include="Assets\Sample Music\Derek_Clegg_-_Ill_Almost_Get_Us_There.mp3" />
+    <Content Include="Assets\Sample Music\Jahzzar_-_Siesta.mp3" />
     <Content Include="Assets\Sample Music\Monplaisir_-_Estampe_Galactus_Barbare_Epaul_Giraffe_Ennui.mp3" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
