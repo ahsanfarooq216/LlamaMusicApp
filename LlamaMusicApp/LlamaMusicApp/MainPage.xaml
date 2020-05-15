@@ -8,7 +8,89 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="Black">
+        <SplitView Name="MenuSplitView" 
+                   DisplayMode="CompactInline" 
+                   IsPaneOpen="False" 
+                   CompactPaneLength="50" 
+                   OpenPaneLength="150" 
+                   Margin="0 0 10 0">
+            <SplitView.Pane>
+                <StackPanel Background="Gray">
+                    
+                    <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE700;" Background="Transparent" Click="Button_Click"/>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE80F;" Background="Transparent"/>
+                        <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE8D6;" Background="Transparent"/>
+                        <TextBlock Text="Playlist" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE710;" Background="Transparent"/>
+                        <TextBlock Text="Add Music" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE721;" Background="Transparent"/>
+                        <TextBlock Text="Search" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" 
+                            FontSize="25" Height="50" Width="50" 
+                            Content="&#xE8FA;" Background="Transparent"/>
+                        <TextBlock Text="Sign In" FontSize="16" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+            </SplitView.Pane>
 
+            <SplitView.Content>
+                <Grid Margin="0,0,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <MediaElement Name="MyMediaElement" AutoPlay="True" />
+                    <TextBlock Name="CategoryTextBlock" Text="My Music" FontSize="24" Margin="30" />
+
+                    <GridView Grid.Row="1" Name="SongGridView">
+                        <MenuBar Width="288" >
+                            <MenuBarItem Title="Songs" FontSize="20" >
+                                
+                            </MenuBarItem>
+                            <MenuBarItem Title="Artists" FontSize="20" >
+
+                            </MenuBarItem>
+
+                        </MenuBar>
+                    </GridView>
+                
+                
+                
+                </Grid>
+
+               
+                
+                
+            </SplitView.Content>
+            
+        </SplitView>
+        
     </Grid>
+    
+    
+    
+    
 </Page>

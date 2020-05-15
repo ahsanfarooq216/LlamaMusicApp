@@ -26,5 +26,17 @@ namespace LlamaMusicApp
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (MenuSplitView.IsPaneOpen == false)
+            {
+                MenuSplitView.IsPaneOpen = true;
+            }
+            else if (MenuSplitView.IsPaneOpen == true)
+            {
+                MenuSplitView.IsPaneOpen = false;
+            }
+        }
     }
 }
