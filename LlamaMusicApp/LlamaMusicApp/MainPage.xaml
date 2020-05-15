@@ -10,7 +10,7 @@
 
     <Grid Background="Black">
         <SplitView Name="MenuSplitView" 
-                   DisplayMode="CompactOverlay" 
+                   DisplayMode="CompactInline" 
                    IsPaneOpen="False" 
                    CompactPaneLength="50" 
                    OpenPaneLength="150" 
