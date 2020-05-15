@@ -17,9 +17,11 @@
                    Margin="0 0 10 0">
             <SplitView.Pane>
                 <StackPanel Background="Gray">
+                    
                     <Button FontFamily="Segoe MDL2 Assets" 
                             FontSize="25" Height="50" Width="50" 
                             Content="&#xE700;" Background="Transparent" Click="Button_Click"/>
+                    
                     <StackPanel Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" 
                             FontSize="25" Height="50" Width="50" 
@@ -53,6 +55,37 @@
                     
                 </StackPanel>
             </SplitView.Pane>
+
+            <SplitView.Content>
+                <Grid Margin="0,0,0,0" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <MediaElement Name="MyMediaElement" AutoPlay="True" />
+                    <TextBlock Name="CategoryTextBlock" Text="My Music" FontSize="24" Margin="30" />
+
+                    <GridView Grid.Row="1" Name="SongGridView">
+                        <MenuBar Width="288" >
+                            <MenuBarItem Title="Songs" FontSize="20" >
+                                
+                            </MenuBarItem>
+                            <MenuBarItem Title="Artists" FontSize="20" >
+
+                            </MenuBarItem>
+
+                        </MenuBar>
+                    </GridView>
+                
+                
+                
+                </Grid>
+
+               
+                
+                
+            </SplitView.Content>
+            
         </SplitView>
         
     </Grid>
