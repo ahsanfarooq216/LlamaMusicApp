@@ -65,24 +65,42 @@
                     <MediaElement Name="MyMediaElement" AutoPlay="True" />
                     <TextBlock Name="CategoryTextBlock" Text="My Music" FontSize="24" Margin="30" />
 
-                    <GridView Grid.Row="1" Name="SongGridView">
+                    <GridView Grid.Row="1" Name="MenuGridView">
                         <MenuBar Width="288" >
                             <MenuBarItem Title="Songs" FontSize="20" >
+                                <MenuFlyoutItem Text="All Genres">
+                                    
+                                </MenuFlyoutItem>
                                 
                             </MenuBarItem>
                             <MenuBarItem Title="Artists" FontSize="20" >
+                                <MenuFlyoutItem Text="From: A to Z">
+
+                                </MenuFlyoutItem>
+                            </MenuBarItem>
+                            <MenuBarItem Title="Albums" FontSize="20" >
+                                <MenuFlyoutItem Text="All Genres">
+
+                                </MenuFlyoutItem>
 
                             </MenuBarItem>
-
                         </MenuBar>
-                    </GridView>
+                        
+                        
+                    
+
+                    </GridView >
+
+                    
+
+                    
+                    
+                        
+                    
                 
                 
                 
                 </Grid>
-
-               
-                
                 
             </SplitView.Content>
             
