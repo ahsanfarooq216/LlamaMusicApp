@@ -125,9 +125,10 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Playlist.cs" />
-    <Compile Include="Models\Song.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Model\Playlist.cs" />
+    <Compile Include="Model\Song.cs" />
+    <Compile Include="Model\SongManager.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
