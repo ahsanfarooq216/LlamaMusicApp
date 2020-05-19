@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
-namespace LlamaMusicApp.Models
+namespace LlamaMusicApp.Model
 {
     public class Song
     {
@@ -27,6 +27,7 @@ namespace LlamaMusicApp.Models
             Title = title;
             Artist = artist;
             AudioFilePath = audioFilePath;
+            ImagePath = "/Assets/LlamaMusicLogo.png";
         }
 
         public Song(string audioFilePath)

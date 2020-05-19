@@ -15,6 +15,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Security.Cryptography.Core;
+using LlamaMusicApp.Model;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -25,9 +27,12 @@ namespace LlamaMusicApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ObservableCollection<Song> Songs; 
         public MainPage()
         {
             this.InitializeComponent();
+            Songs = new ObservableCollection<Song>();
+            SongManager.GetAllMusic(Songs);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,6 +45,12 @@ namespace LlamaMusicApp
             {
                 MenuSplitView.IsPaneOpen = false;
             }
+        }
+
+        private void SongGridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var song = (Song)e.ClickedItem;
+            MyMediaElement.Source = new Uri(BaseUri, song.AudioFilePath);
         }
     }
 }

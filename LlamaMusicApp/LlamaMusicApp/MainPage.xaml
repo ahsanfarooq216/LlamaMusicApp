@@ -63,7 +63,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <MediaElement Name="MyMediaElement" AutoPlay="True" />
+                    
                     <TextBlock Name="CategoryTextBlock" Text="My Music" FontSize="24" Margin="30" />
 
                     <GridView Grid.Row="1" Name="MenuGridView">
@@ -80,36 +80,31 @@
                                 </MenuFlyoutItem>
                             </MenuBarItem>
                             <MenuBarItem Title="Albums" FontSize="20" >
-                                <MenuFlyoutItem Text="All Genres">
-
-                                </MenuFlyoutItem>
-
+                                <MenuFlyoutItem Text="All Genres"></MenuFlyoutItem>
                             </MenuBarItem>
                         </MenuBar>
-                        
-                        
-                    
-
                     </GridView >
-
                     
-
-                    
-                    
-                        
-                    
-                
-                
-                
-                </Grid>
-                
-            </SplitView.Content>
-            
-        </SplitView>
-        
+                    <GridView Grid.Row="2"
+                              Margin="10,100,0,0"
+                              Name="SongGridView"
+                              IsItemClickEnabled="True"
+                              ItemsSource="{x:Bind Songs}"
+                              ItemClick="SongGridView_ItemClick" 
+                              >
+                        <MediaElement Name="MyMediaElement" Source="Song.AudioFilePath"  AutoPlay="True" />
+                        <GridView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Song">
+                                <StackPanel>
+                                <Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImagePath}"/>
+                                    <TextBlock FontSize="16" Text="{x:Bind Title}" HorizontalAlignment="Center" />
+                                    <TextBlock Text="{x:Bind Artist}" HorizontalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+                </Grid>                
+            </SplitView.Content>            
+        </SplitView>        
     </Grid>
-    
-    
-    
-    
 </Page>
