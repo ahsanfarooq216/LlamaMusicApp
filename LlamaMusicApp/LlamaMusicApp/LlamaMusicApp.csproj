@@ -137,6 +137,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Derek_Clegg_-_Annalise.mp3" />
     <Content Include="Assets\LlamaMusicBlue.png" />
     <Content Include="Assets\LlamaMusicLogo.png" />
     <Content Include="Assets\Sample Music\Derek_Clegg_-_Annalise.mp3" />
