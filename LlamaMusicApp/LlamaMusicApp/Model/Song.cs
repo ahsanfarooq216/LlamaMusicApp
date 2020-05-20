@@ -30,9 +30,17 @@ namespace LlamaMusicApp.Model
             ImagePath = "/Assets/LlamaMusicLogo.png";
         }
 
+        public Song(string title, string artist)
+        {
+            Title = title;
+            Artist = artist;
+            ImagePath = "/Assets/LlamaMusicLogo.png";
+        }
+
         public Song(string audioFilePath)
         {
             AudioFilePath = audioFilePath;
+            ImagePath = "/Assets/LlamaMusicLogo.png";
         }
 
         public Song(Song source)

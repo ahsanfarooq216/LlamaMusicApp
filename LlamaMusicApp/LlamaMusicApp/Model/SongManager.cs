@@ -39,7 +39,10 @@ namespace LlamaMusicApp.Model
             songs.Clear();
             filteredSongs.ForEach(s => songs.Add(s));
         }
-
+        public static void AddSong(ObservableCollection<Song> songsCollection, Song song)
+        {
+            songsCollection.Add(song);
+        }
         private static List<Song> GetSampleMusic()
         {
             var sampleSongs = new List<Song>();
