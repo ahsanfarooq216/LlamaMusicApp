@@ -99,8 +99,8 @@
                             <DataTemplate x:DataType="model:Song">
                                 <StackPanel>
                                 <Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImagePath}"/>
-                                    <TextBlock FontSize="16" Text="{x:Bind Title}" HorizontalAlignment="Center" />
                                     <TextBlock Text="{x:Bind Artist}" HorizontalAlignment="Center" />
+                                    <TextBlock FontSize="16" Text="{x:Bind Title}" HorizontalAlignment="Center" />
                                 </StackPanel>
                             </DataTemplate>
                         </GridView.ItemTemplate>

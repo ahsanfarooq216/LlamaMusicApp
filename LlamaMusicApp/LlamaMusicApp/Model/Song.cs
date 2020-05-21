@@ -10,8 +10,8 @@ namespace LlamaMusicApp.Model
     public class Song
     {
         private string _audioFilePath;
-        public string Title { get; set; }
         public string Artist { get; set; }
+        public string Title { get; set; }
         public string Album { get; set; }
         public string Genre { get; set; }
         public string ImagePath { get; set; }
@@ -22,18 +22,18 @@ namespace LlamaMusicApp.Model
         }
 
         //Constructors
-        public Song(string title, string artist, string audioFilePath)
+        public Song(string artist, string title, string audioFilePath)
         {
-            Title = title;
             Artist = artist;
+            Title = title;
             AudioFilePath = audioFilePath;
             ImagePath = "/Assets/LlamaMusicLogo.png";
         }
 
-        public Song(string title, string artist)
+        public Song(string artist, string title)
         {
-            Title = title;
             Artist = artist;
+            Title = title;
             ImagePath = "/Assets/LlamaMusicLogo.png";
         }
 
@@ -45,8 +45,8 @@ namespace LlamaMusicApp.Model
 
         public Song(Song source)
         {
-            Title = source.Title;
             Artist = source.Artist;
+            Title = source.Title;
             Genre = source.Genre;
             Album = source.Album;
             ImagePath = source.ImagePath;

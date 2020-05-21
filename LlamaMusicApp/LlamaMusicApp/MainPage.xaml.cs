@@ -148,12 +148,12 @@ namespace LlamaMusicApp
         private void SongSaveButton_Click(object sender, RoutedEventArgs e)
         {
             //Allow user to save name, artist, and genre
-            string name = SongTitle_UserInput.Text;
+            string title = SongTitle_UserInput.Text;
             string artist = SongArtist_UserInput.Text;
             //string album = Album_UserInput.Text;
             string filepath = SongPath_UserInput.Text;
 
-            var newSong = new Song(name, artist, filepath);
+            var newSong = new Song(artist, title, filepath);
             Songs.Add(newSong);
             SwitchToContentView(ContentView.Home);
         }
