@@ -113,7 +113,7 @@
                     </GridView>
                     <!--#region AddNewSongView Ahsan-->
                     <!-- Appears on the right side of the page and shows the user
-            option to import song to library. Collapsed/hidden by default -->
+                    option to import song to library. Collapsed/hidden by default -->
                     <StackPanel x:Name="AddNewSongView"
                         Grid.Column="1"
                         Grid.Row="2"
@@ -137,12 +137,12 @@
                              PlaceholderText="Artist"
                              Padding="5"/>
 
-                            <!--Enter song genre--><!--
-                            <TextBlock Text="Enter genre:" 
+                            <!--Enter song path-->
+                            <TextBlock Text="Enter path:" 
                                Padding="5"/>
-                            <TextBox x:Name="Genre_UserInput"
-                             PlaceholderText="Genre"
-                             Padding="5"/>-->
+                            <TextBox x:Name="SongPath_UserInput"
+                             PlaceholderText="SongPath"
+                             Padding="5"/>
 
 
                             <!--Save button for import song-->

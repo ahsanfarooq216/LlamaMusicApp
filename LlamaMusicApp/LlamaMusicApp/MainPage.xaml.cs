@@ -105,7 +105,7 @@ namespace LlamaMusicApp
             if (file != null)
             {
                 // Application now has read/write access to the picked file
-                string filePath = file.Path;
+                SongPath_UserInput.Text = file.Path;
             }
             else
             {
@@ -151,9 +151,9 @@ namespace LlamaMusicApp
             string name = SongTitle_UserInput.Text;
             string artist = SongArtist_UserInput.Text;
             //string album = Album_UserInput.Text;
-            //string filepath = "test";
+            string filepath = SongPath_UserInput.Text;
 
-            var newSong = new Song(name, artist);
+            var newSong = new Song(name, artist, filepath);
             Songs.Add(newSong);
             SwitchToContentView(ContentView.Home);
         }
