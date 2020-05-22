@@ -20,6 +20,11 @@ using LlamaMusicApp.Model;
 using Windows.Media.Playback;
 using Windows.Media.Core;
 using Windows.Storage;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.Storage.Pickers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -160,5 +165,110 @@ namespace LlamaMusicApp
             Songs.Add(newSong);
             SwitchToContentView(ContentView.Home);
         }
+
+        //Code added to edit info
+        private async void EditInfo_Click(object sender, RoutedEventArgs e)
+        {
+            //Frame.Navigate(typeof(BlankPage1));
+            var myview = CoreApplication.CreateNewView();
+            int newViewId = 0;
+            await myview.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                Frame newFrame = new Frame();
+                newFrame.Navigate(typeof(EditInfo), null);
+                Window.Current.Content = newFrame;
+                Window.Current.Activate();
+                newViewId = ApplicationView.GetForCurrentView().Id;
+
+            });
+            await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId, ViewSizePreference.UseMinimum);
+            // await ApplicationViewSwitcher.TryShowAsViewModeAsync(newViewId, ApplicationViewMode.CompactOverlay);
+            //Frame.Navigate(typeof(MainPage));
+        }
+
+        //Code added to edit albumcover
+        private async void EditALbumCover_Click(object sender, RoutedEventArgs e)
+        {
+
+            var picker = new FileOpenPicker();
+
+
+            picker.ViewMode = PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+
+
+            picker.FileTypeFilter.Add(".png");
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".jpeg");
+
+
+
+            StorageFile file = await picker.PickSingleFileAsync();
+
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                //string filePath = file.Path;
+
+                //var uri = new System.Uri("ms-appdata:///local/images/logo.png");
+                //var file1 = await StorageFile.GetFileFromApplicationUriAsync(uri);
+
+                //Image img = new Image();
+                //img.Source = file1;
+
+                //Image img = new Image();
+                // img.Source = new BitmapImage(new Uri(@"/Assets/LlamaMusicBlue.png"));
+
+
+
+                using (Windows.Storage.Streams.IRandomAccessStream fileStream =
+                    await file.OpenAsync(Windows.Storage.FileAccessMode.Read))
+                {
+                    // Set the image source to the selected bitmap.
+                    BitmapImage bitmapImage =
+                        new BitmapImage();
+
+                    bitmapImage.SetSource(fileStream);
+                    //MyImage.Source = bitmapImage;
+                }
+
+            }
+            else
+            {
+                //this.textBlock.Text = "Operation cancelled.";
+            }
+
+        }
+        //Code to delete 
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            //await DeleteAsync(StorageDeleteOption.Default);
+
+
+        }
+        //Code to play the song
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            /*StorageFolder folder = await Package.Current.InstalledLocation.GetFoldersAsync(@"Assets");
+
+            StorageFile file = await folder.GetFileAsync();
+
+             player.AutoPlay = false;
+             player.Source = MediaSource.CreateFromStorageFile(file);
+
+             if (playing)
+             {
+                 player.Source = null;
+                 playing = false;
+             }
+             else
+             {
+                player.Play();
+               playing = true;*/
+
+
+        }
+
     }
 }

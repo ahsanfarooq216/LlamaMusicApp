@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="Black">
+    <Grid Background="White">
         <SplitView Name="MenuSplitView" 
                    DisplayMode="CompactInline" 
                    IsPaneOpen="False" 
@@ -98,9 +98,49 @@
                         <GridView.ItemTemplate>
                             <DataTemplate x:DataType="model:Song">
                                 <StackPanel>
-                                <Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImagePath}"/>
-                                    <TextBlock Text="{x:Bind Artist}" HorizontalAlignment="Center" />
-                                    <TextBlock FontSize="16" Text="{x:Bind Title}" HorizontalAlignment="Center" />
+                                <Image Name="MyImage" Height="112" Width="101" 
+                                       Source="{x:Bind ImagePath}"/>
+      
+              <!--The artist name will be displayed below the title name -->
+                                    
+                                    <TextBlock FontSize="12" Text="{x:Bind Title}"
+                                               FontWeight="Bold"
+                                               TextWrapping="WrapWholeWords"
+                                               HorizontalAlignment="Center" />
+                                    
+                                    <TextBlock Text="{x:Bind Artist}" 
+                                               FontSize="16" FontWeight="Light"
+                                               TextWrapping="WrapWholeWords"
+                                               HorizontalAlignment="Center" />
+               <!--Added button to edit info-->
+                                    
+                                    <Button Name="MyButton" FontFamily="Segoe MDL2 Assets" 
+                                            Height="50" Width="50" Background="Transparent" 
+                                            Content="&#xE90B;">
+                                        <Button.Flyout>
+                                            <MenuFlyout>
+                                                <MenuFlyoutItem x:Name="DeleteButton" 
+                                                                Text="Delete" Icon="Delete" 
+                                                                Click="DeleteButton_Click"/>
+
+                                                <MenuFlyoutItem x:Name="PlayButton" Text="Play" 
+                                                                Icon="Play" Click="PlayButton_Click"/>
+
+
+                                                <MenuFlyoutItem x:Name="EditInfo" Text="Edit Info" Icon="Edit"
+                                                                    Click="EditInfo_Click"/>
+
+                                                <MenuFlyoutItem x:Name="EditALbumCover" 
+                                                                    Text="Edit AlbumCover" 
+                                                                
+                                                        HorizontalAlignment="Center" Icon="Edit"
+                                                                    Click="EditALbumCover_Click"/>
+
+
+                                            </MenuFlyout>
+                                        </Button.Flyout>
+                                    </Button>
+
                                 </StackPanel>
                             </DataTemplate>
                         </GridView.ItemTemplate>
