@@ -125,9 +125,10 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\MusicCollection.cs" />
-    <Compile Include="Models\Song.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Model\Playlist.cs" />
+    <Compile Include="Model\Song.cs" />
+    <Compile Include="ViewModel\SongManager.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,9 +137,12 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Derek_Clegg_-_Annalise.mp3" />
     <Content Include="Assets\LlamaMusicBlue.png" />
     <Content Include="Assets\LlamaMusicLogo.png" />
     <Content Include="Assets\Sample Music\Derek_Clegg_-_Annalise.mp3" />
+    <Content Include="Assets\Sample Music\Derek_Clegg_-_Ill_Almost_Get_Us_There.mp3" />
+    <Content Include="Assets\Sample Music\Jahzzar_-_Siesta.mp3" />
     <Content Include="Assets\Sample Music\Monplaisir_-_Estampe_Galactus_Barbare_Epaul_Giraffe_Ennui.mp3" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
