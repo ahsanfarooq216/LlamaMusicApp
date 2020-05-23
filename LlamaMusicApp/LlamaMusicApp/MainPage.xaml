@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:LlamaMusicApp.Model"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
 
     <Grid>
         <SplitView Name="MenuSplitView" 
@@ -112,6 +112,7 @@
                                                FontSize="16" FontWeight="Light"
                                                TextWrapping="WrapWholeWords"
                                                HorizontalAlignment="Center" />
+                                    <!--<TextBlock Name="textblok2" Text="{x:Bind AudioFilePath}" FontSize="12" Width="200" Margin="5,5,5,5"/>-->
                <!--Added button to edit info-->
                                     
                                     <Button Name="MyButton" FontFamily="Segoe MDL2 Assets" 
@@ -171,26 +172,31 @@
                              Padding="5"/>
 
                             <!--Enter song artist-->
-                            <TextBlock Text="Enter artist name:" 
-                               Padding="5"/>
+                            <TextBlock Text="Enter artist name:" Padding="5"/>
                             <TextBox x:Name="SongArtist_UserInput"
                              PlaceholderText="Artist"
                              Padding="5"/>
 
                             <!--Enter song path-->
-                            <TextBlock Text="Enter path:" 
-                               Padding="5"/>
+                            <TextBlock Text="Selected song path:" Padding="5"/>
                             <TextBox x:Name="SongPath_UserInput"
-                             PlaceholderText="SongPath"
-                             Padding="5"/>
-
-
-                            <!--Save button for import song-->
-                            <Button x:Name="SongSaveButton"
-                            Content="Add Song"
-                            Click="SongSaveButton_Click"
-                            Padding="5">
-                            </Button>
+                                     PlaceholderText="SongPath"
+                                     Padding="5"/>
+                            <TextBlock Text="Add Image:" Padding="5"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="ImagePath_UserInput" Width="150"
+                                     PlaceholderText="ImagePath"
+                                     Padding="5"/>
+                                <Button x:Name="AddImageButton"
+                                    Content="Browse"
+                                    Click="AddImageButton_Click"
+                                    Padding="5"/>
+                            </StackPanel>
+                                <!--Save button for import song-->
+                                <Button x:Name="SongSaveButton"
+                                    Content="Save Song"
+                                    Click="SongSaveButton_Click" Margin="0,5,5,5"
+                                    Padding="5"/>
                         </StackPanel>
                     </StackPanel>
                     <!--#endregion-->

@@ -159,13 +159,26 @@ namespace LlamaMusicApp
             string title = SongTitle_UserInput.Text;
             string artist = SongArtist_UserInput.Text;
             //string album = Album_UserInput.Text;
-            string filepath = SongPath_UserInput.Text;
+            string audioFilePath = SongPath_UserInput.Text;
+            string imageFilePath = ImagePath_UserInput.Text;
 
-            var newSong = new Song(artist, title, filepath);
+
+            var newSong = new Song(artist, title, audioFilePath, imageFilePath);
             Songs.Add(newSong);
             SwitchToContentView(ContentView.Home);
         }
+        private static string GetRelativePath(string wholePath, string musicWord)
+        {
+            int startIndex = wholePath.IndexOf(musicWord);
+            string path = wholePath.Substring(startIndex + musicWord.Length);
+            return path;
+        }
 
+        private static string GetSongName(string wholePath)
+        {
+            var fileInfo = new FileInfo(wholePath);
+            return fileInfo.Name.Replace(fileInfo.Extension, string.Empty);
+        }
         //Code added to edit info
         private async void EditInfo_Click(object sender, RoutedEventArgs e)
         {
@@ -270,5 +283,24 @@ namespace LlamaMusicApp
 
         }
 
+        private async void AddImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+
+            //Filters the type of files acceptable to connect
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".png");
+
+            //Allows user to select the song
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                ImagePath_UserInput.Text = file.Path;
+                //ImagePath_UserInput.Text = ImagePath_UserInput.Text.Replace("\\", "/");
+            }
+        }
     }
 }
