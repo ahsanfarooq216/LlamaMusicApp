@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -77,8 +79,8 @@ namespace LlamaMusicApp
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Windows.Storage.StorageFolder folder = await Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
-            Windows.Storage.StorageFile file = await folder.GetFileAsync("Derek_Clegg_-_Annalise.mp3");
+            StorageFolder folder = await Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            StorageFile file = await folder.GetFileAsync("Derek_Clegg_-_Annalise.mp3");
 
             player.AutoPlay = false;
             player.Source = MediaSource.CreateFromStorageFile(file);
@@ -160,7 +162,9 @@ namespace LlamaMusicApp
             string artist = SongArtist_UserInput.Text;
             //string album = Album_UserInput.Text;
             string audioFilePath = SongPath_UserInput.Text;
-            string imageFilePath = ImagePath_UserInput.Text;
+            //string imageFilePath = ImagePath_UserInput.Text;
+
+            string imageFilePath = "/Assets/LlamaMusicLogo.png";
 
 
             var newSong = new Song(artist, title, audioFilePath, imageFilePath);
@@ -203,20 +207,23 @@ namespace LlamaMusicApp
         private async void EditALbumCover_Click(object sender, RoutedEventArgs e)
         {
 
+
             var picker = new FileOpenPicker();
 
 
             picker.ViewMode = PickerViewMode.Thumbnail;
             picker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
 
-
             picker.FileTypeFilter.Add(".png");
             picker.FileTypeFilter.Add(".jpg");
             picker.FileTypeFilter.Add(".jpeg");
+            picker.ViewMode = PickerViewMode.Thumbnail;
 
 
 
             StorageFile file = await picker.PickSingleFileAsync();
+
+
 
             if (file != null)
             {
@@ -240,9 +247,9 @@ namespace LlamaMusicApp
                     // Set the image source to the selected bitmap.
                     BitmapImage bitmapImage =
                         new BitmapImage();
-
-                    bitmapImage.SetSource(fileStream);
                     //MyImage.Source = bitmapImage;
+
+
                 }
 
             }
@@ -251,56 +258,72 @@ namespace LlamaMusicApp
                 //this.textBlock.Text = "Operation cancelled.";
             }
 
+
         }
         //Code to delete 
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            //await DeleteAsync(StorageDeleteOption.Default);
+
+            StorageFolder folder = await Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            StorageFile file = await folder.GetFileAsync("Derek_Clegg_-_Annalise.mp3");
+
+
+            await file.DeleteAsync(StorageDeleteOption.PermanentDelete);
+            // sampleSongs.Add(new Song("Derek", "Annalise", $"/Assets/SampleMusic/Derek_Clegg_-_Annalise.mp3"));
+
 
 
         }
         //Code to play the song
 
-        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        private async void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            /*StorageFolder folder = await Package.Current.InstalledLocation.GetFoldersAsync(@"Assets");
+            StorageFolder folder = await Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            StorageFile file = await folder.GetFileAsync("Derek_Clegg_-_Annalise.mp3");
 
-            StorageFile file = await folder.GetFileAsync();
+            player.AutoPlay = false;
+            player.Source = MediaSource.CreateFromStorageFile(file);
 
-             player.AutoPlay = false;
-             player.Source = MediaSource.CreateFromStorageFile(file);
-
-             if (playing)
-             {
-                 player.Source = null;
-                 playing = false;
-             }
-             else
-             {
-                player.Play();
-               playing = true;*/
-
-
-        }
-
-        private async void AddImageButton_Click(object sender, RoutedEventArgs e)
-        {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker();
-            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
-            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
-
-            //Filters the type of files acceptable to connect
-            picker.FileTypeFilter.Add(".jpg");
-            picker.FileTypeFilter.Add(".png");
-
-            //Allows user to select the song
-            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
-            if (file != null)
+            if (playing)
             {
-                // Application now has read/write access to the picked file
-                ImagePath_UserInput.Text = file.Path;
-                //ImagePath_UserInput.Text = ImagePath_UserInput.Text.Replace("\\", "/");
+                player.Source = null;
+                playing = false;
+            }
+            else
+            {
+                player.Play();
+                playing = true;
+
             }
         }
+
+        /* private async void AddImageButton_Click(object sender, RoutedEventArgs e)
+     {
+         var picker = new Windows.Storage.Pickers.FileOpenPicker();
+         picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+         picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+
+         //Filters the type of files acceptable to connect
+         picker.FileTypeFilter.Add(".jpg");
+         picker.FileTypeFilter.Add(".png");
+
+         //Allows user to select the song
+         Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+         if (file != null)
+         {
+             // Application now has read/write access to the picked file
+             // ImagePath_UserInput.Text = file.Path;
+             //ImagePath_UserInput.Text = ImagePath_UserInput.Text.Replace("\\", "/");
+
+
+             //ImagePath_UserInput.Text = file.Path;
+
+             file.Path = "/Assets/LlamaMusicLogo.png";
+
+         }
+     }
+     */
+
+
     }
 }
