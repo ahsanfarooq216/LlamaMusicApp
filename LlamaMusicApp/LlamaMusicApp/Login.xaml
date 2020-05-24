@@ -26,7 +26,7 @@
                     <TextBlock Text="Sign Up" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </StackPanel>
             </StackPanel>
-            <TextBlock x:Name="Error" Margin="4" />
+            <Button Name="Continue" HorizontalAlignment="Center" Content="Continue without signing in" Margin="5,5,5,5" Click="Continue_Click"/>
         </StackPanel>
     </Grid>
 </Page>
