@@ -270,10 +270,8 @@ namespace LlamaMusicApp
 
             await file.DeleteAsync(StorageDeleteOption.PermanentDelete);
             // sampleSongs.Add(new Song("Derek", "Annalise", $"/Assets/SampleMusic/Derek_Clegg_-_Annalise.mp3"));
-
-
-
         }
+
         //Code to play the song
 
         private async void PlayButton_Click(object sender, RoutedEventArgs e)
@@ -297,33 +295,29 @@ namespace LlamaMusicApp
             }
         }
 
-        /* private async void AddImageButton_Click(object sender, RoutedEventArgs e)
-     {
-         var picker = new Windows.Storage.Pickers.FileOpenPicker();
-         picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
-         picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+        private async void AddImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            var picker = new Windows.Storage.Pickers.FileOpenPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
 
-         //Filters the type of files acceptable to connect
-         picker.FileTypeFilter.Add(".jpg");
-         picker.FileTypeFilter.Add(".png");
+            //Filters the type of files acceptable to connect
+            picker.FileTypeFilter.Add(".jpg");
+            picker.FileTypeFilter.Add(".png");
 
-         //Allows user to select the song
-         Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
-         if (file != null)
-         {
-             // Application now has read/write access to the picked file
-             // ImagePath_UserInput.Text = file.Path;
-             //ImagePath_UserInput.Text = ImagePath_UserInput.Text.Replace("\\", "/");
+            //Allows user to select the song
+            Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                // Application now has read/write access to the picked file
+                ImagePath_UserInput.Text = file.Path;
+                //ImagePath_UserInput.Text = ImagePath_UserInput.Text.Replace("\\", "/");
+            }
+        }
 
-
-             //ImagePath_UserInput.Text = file.Path;
-
-             file.Path = "/Assets/LlamaMusicLogo.png";
-
-         }
-     }
-     */
-
-
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchToContentView(ContentView.Home);
+        }
     }
 }

@@ -27,7 +27,7 @@
                         <Button x:Name="Home"
                             FontFamily="Segoe MDL2 Assets" 
                             FontSize="25" Height="50" Width="50" 
-                            Content="&#xE80F;" Background="Transparent"/>
+                            Content="&#xE80F;" Background="Transparent" Click="Home_Click"/>
                         <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -159,8 +159,6 @@
                             </DataTemplate>
                         </GridView.ItemTemplate>
                     </GridView>
-
-
                     <!--#region AddNewSongView Ahsan-->
                     <!-- Appears on the right side of the page and shows the user
                     option to import song to library. Collapsed/hidden by default -->
@@ -191,7 +189,16 @@
                             <TextBox x:Name="SongPath_UserInput"
                                      PlaceholderText="SongPath"
                                      Padding="5"/>
-
+                            <TextBlock Text="Add Image:" Padding="5"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="ImagePath_UserInput" Width="150"
+                                     PlaceholderText="ImagePath"
+                                     Padding="5"/>
+                                <Button x:Name="AddImageButton"
+                                    Content="Browse"
+                                    Click="AddImageButton_Click"
+                                    Padding="5"/>
+                            </StackPanel>
                             <!--Save button for import song-->
                             <Button x:Name="SongSaveButton"
                                     Content="Save Song"
