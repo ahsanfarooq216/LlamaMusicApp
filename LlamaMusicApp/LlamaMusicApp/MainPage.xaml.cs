@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -257,8 +255,6 @@ namespace LlamaMusicApp
             {
                 //this.textBlock.Text = "Operation cancelled.";
             }
-
-
         }
         //Code to delete 
         private async void DeleteButton_Click(object sender, RoutedEventArgs e)
@@ -318,6 +314,10 @@ namespace LlamaMusicApp
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             SwitchToContentView(ContentView.Home);
+        }
+        private void SignIn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
         }
     }
 }
