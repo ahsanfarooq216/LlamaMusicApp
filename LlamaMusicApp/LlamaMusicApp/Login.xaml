@@ -18,12 +18,12 @@
             <PasswordBox x:Name="PasswordBox" PlaceholderText="Password" Width="200" Margin="0,5,0,5" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                 <StackPanel Orientation="Vertical">
-                    <Button Name="SignInButton" FontSize="48" FontFamily="Segoe MDL2 Assets" Content="&#xE748;" Margin="5" Click="SignInButton_Click" />
-                    <TextBlock Text="Sign In" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button Name="SignInButton" FontSize="24" FontFamily="Segoe MDL2 Assets" Content="&#xE748;" Margin="5" Click="SignInButton_Click" />
+                    <TextBlock Text="Sign In" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <Button Name="SignUpButton" FontSize="48" FontFamily="Segoe MDL2 Assets" Content="&#xE8FA;" Margin="5" Click="SignUpButton_Click"/>
-                    <TextBlock Text="Sign Up" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button Name="SignUpButton" FontSize="24" FontFamily="Segoe MDL2 Assets" Content="&#xE8FA;" Margin="5" Click="SignUpButton_Click"/>
+                    <TextBlock Text="Sign Up" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </StackPanel>
             </StackPanel>
             <Button Name="Continue" HorizontalAlignment="Center" Content="Continue without signing in" Margin="5,5,5,5" Click="Continue_Click"/>

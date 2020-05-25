@@ -332,5 +332,12 @@ namespace LlamaMusicApp
         {
             SwitchToContentView(ContentView.Search);
         }
+
+        private void SearchByTitle_Click(object sender, RoutedEventArgs e)
+        {
+            var title = Title_UserInput.Text;
+            SongManager.GetSongsByTitle(Songs, title);
+            SwitchToContentView(ContentView.Home);
+        }
     }
 }

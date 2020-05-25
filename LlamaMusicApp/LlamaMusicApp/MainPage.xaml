@@ -229,6 +229,17 @@
                                     Click="SearchByArtist_Click"
                                     Padding="5"/>
                             </StackPanel>
+                            <!--Search songs by title-->
+                            <TextBlock Text="Search songs by title:" Padding="5"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="Title_UserInput" Width="150"
+                                     PlaceholderText="Title"
+                                     Padding="5"/>
+                                <Button x:Name="SearchByTitle"
+                                    Content="Search"
+                                    Click="SearchByTitle_Click"
+                                    Padding="5"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                     <!--#endregion-->
