@@ -45,7 +45,8 @@ namespace LlamaMusicApp
         private enum ContentView
         {
             Home,
-            AddNewSong
+            AddNewSong,
+            Search
         }
         public MainPage()
         {
@@ -126,18 +127,17 @@ namespace LlamaMusicApp
 
             switch (destContentView)
             {
-                //case ContentView.PlayListCreation:
-                //    PlayListPlayBackView.Visibility = Visibility.Collapsed;
-                //    PlayListCreationView.Visibility = Visibility.Visible;
-                //    // Hide the Add New Songs view
-                //    AddNewSongView.Visibility = Visibility.Collapsed;
+                case ContentView.Search:
+                    SongGridView.Visibility = Visibility.Collapsed;
+                    MenuGridView.Visibility = Visibility.Collapsed;
+                    AddNewSongView.Visibility = Visibility.Collapsed;
+                    SearchView.Visibility = Visibility.Visible;
 
-                //    break;
+                    break;
                 case ContentView.Home:
-                    //xxxx.Visibility = Visibility.Collapsed;
+                    SearchView.Visibility = Visibility.Collapsed;
                     SongGridView.Visibility = Visibility.Visible;
                     MenuGridView.Visibility = Visibility.Visible;
-                    // Hide the Add New Songs view
                     AddNewSongView.Visibility = Visibility.Collapsed;
 
                     break;
@@ -146,7 +146,7 @@ namespace LlamaMusicApp
                     SongGridView.Visibility = Visibility.Collapsed;
                     // Hide the playlist playback view
                     MenuGridView.Visibility = Visibility.Collapsed;
-                    //xxxx.Visibility = Visibility.Collapsed;
+                    SearchView.Visibility = Visibility.Collapsed;
                     // Show the Add New Songs view
                     AddNewSongView.Visibility = Visibility.Visible;
                     break;
@@ -313,11 +313,24 @@ namespace LlamaMusicApp
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
+            SongManager.GetAllMusic(Songs);
             SwitchToContentView(ContentView.Home);
         }
         private void SignIn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Login));
+        }
+
+        private void SearchByArtist_Click(object sender, RoutedEventArgs e)
+        {
+            var artist = ArtistName_UserInput.Text;
+            SongManager.GetSongsByArtist(Songs, artist);
+            SwitchToContentView(ContentView.Home);
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchToContentView(ContentView.Search);
         }
     }
 }
