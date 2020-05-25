@@ -7,9 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:LlamaMusicApp.Model"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlAltMediumLowAcrylicWindowMediumBrush}">
 
-    <Grid Background="Black">
+    <Grid>
         <SplitView Name="MenuSplitView" 
                    DisplayMode="CompactInline" 
                    IsPaneOpen="False" 
@@ -18,16 +18,16 @@
                    Margin="0 0 10 0">
             <SplitView.Pane>
                 <StackPanel Background="Gray">
-                    
+
                     <Button FontFamily="Segoe MDL2 Assets" 
                             FontSize="25" Height="50" Width="50" 
                             Content="&#xE700;" Background="Transparent" Click="Button_Click"/>
-                    
+
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="Home"
                             FontFamily="Segoe MDL2 Assets" 
                             FontSize="25" Height="50" Width="50" 
-                            Content="&#xE80F;" Background="Transparent"/>
+                            Content="&#xE80F;" Background="Transparent" Click="Home_Click"/>
                         <TextBlock Text="Home" FontSize="16" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -44,18 +44,18 @@
                         <TextBlock Text="Add Music" FontSize="16" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button FontFamily="Segoe MDL2 Assets" 
+                        <Button Name="SearchButton" FontFamily="Segoe MDL2 Assets" 
                             FontSize="25" Height="50" Width="50" 
-                            Content="&#xE721;" Background="Transparent"/>
+                            Content="&#xE721;" Background="Transparent" Click="SearchButton_Click"/>
                         <TextBlock Text="Search" FontSize="16" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button FontFamily="Segoe MDL2 Assets" 
+                        <Button Name="SignIn" FontFamily="Segoe MDL2 Assets" 
                             FontSize="25" Height="50" Width="50" 
-                            Content="&#xE8FA;" Background="Transparent"/>
+                            Content="&#xE8FA;" Background="Transparent" Click="SignIn_Click"/>
                         <TextBlock Text="Sign In" FontSize="16" VerticalAlignment="Center"/>
                     </StackPanel>
-                    
+
                 </StackPanel>
             </SplitView.Pane>
 
@@ -65,16 +65,16 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    
+
                     <TextBlock Name="CategoryTextBlock" Text="My Music" FontSize="24" Margin="30" />
 
                     <GridView Grid.Row="1" Name="MenuGridView">
                         <MenuBar Width="288" >
                             <MenuBarItem Title="Songs" FontSize="20" >
                                 <MenuFlyoutItem Text="All Genres">
-                                    
+
                                 </MenuFlyoutItem>
-                                
+
                             </MenuBarItem>
                             <MenuBarItem Title="Artists" FontSize="20" >
                                 <MenuFlyoutItem Text="From: A to Z">
@@ -86,7 +86,7 @@
                             </MenuBarItem>
                         </MenuBar>
                     </GridView >
-                    
+
                     <GridView Grid.Row="2"
                               Margin="10,100,0,0"
                               Name="SongGridView"
@@ -94,22 +94,70 @@
                               ItemsSource="{x:Bind Songs}"
                               ItemClick="SongGridView_ItemClick" 
                               >
-                        <MediaElement Name="MyMediaElement" Source="Song.AudioFilePath"  AutoPlay="True" />
+                        <MediaElement Name="MyMediaElement" 
+                                      Source="Song.AudioFilePath" 
+                                      AutoPlay="True" />
                         <GridView.ItemTemplate>
                             <DataTemplate x:DataType="model:Song">
                                 <StackPanel>
-                                <Image Name="MyImage" Height="112" Width="101" Source="{x:Bind ImagePath}"/>
-                                    <TextBlock Text="{x:Bind Artist}" HorizontalAlignment="Center" />
-                                    <TextBlock FontSize="16" Text="{x:Bind Title}" HorizontalAlignment="Center" />
+                                    <Image Name="MyImage"
+                                       Height="112"
+                                       Width="101" 
+                                       Source="{x:Bind ImagePath}"/>
+
+                                    <!--The artist name will be displayed below the title name -->
+
+                                    <TextBox FontSize="12"
+                                             Text="{x:Bind Title}" 
+                                             BorderThickness="0"
+                                             FontWeight="Bold" TextWrapping="Wrap"
+                                             HorizontalAlignment="Center" />
+
+                                    <TextBox Text="{x:Bind Artist}" 
+                                               FontSize="14" FontWeight="Light"
+                                               BorderThickness="0" TextWrapping="Wrap"
+                                               HorizontalAlignment="Center" />
+
+
+                                    <!--<TextBlock Name="textblok2" Text="{x:Bind AudioFilePath}" FontSize="12" Width="200" Margin="5,5,5,5"/>-->
+                                    <!--Added button to edit info-->
+
+                                    <Button Name="MyButton" FontFamily="Segoe MDL2 Assets" FontSize="12" 
+                                            Height="38" Width="38" Background="Transparent" 
+                                            Content="&#xE90B;">
+                                        <Button.Flyout>
+                                            <MenuFlyout>
+                                                <MenuFlyoutItem x:Name="DeleteButton" 
+                                                                Text="Delete" Icon="Delete" 
+                                                                Click="DeleteButton_Click"/>
+
+                                                <MenuFlyoutItem x:Name="PlayButton"
+                                                                Text="Play/Stop" 
+                                                                Icon="Play" 
+                                                                Click="PlayButton_Click"/>
+
+
+                                                <MenuFlyoutItem x:Name="EditInfo" 
+                                                                Text="Edit Info" 
+                                                                Icon="Edit"
+                                                                Click="EditInfo_Click"/>
+
+                                                <MenuFlyoutItem x:Name="EditALbumCover" 
+                                                                    Text="Edit AlbumCover" 
+                                                                
+                                                        HorizontalAlignment="Center" 
+                                                                Icon="Edit"
+                                                                    Click="EditALbumCover_Click"/>
+
+
+
+                                            </MenuFlyout>
+                                        </Button.Flyout>
+                                    </Button>
+
                                 </StackPanel>
                             </DataTemplate>
                         </GridView.ItemTemplate>
-                    </GridView>
-
-                    <GridView Grid.Row="3" Margin="40,290,0,0">
-                        <Button FontFamily="Segoe MDL2 Assets" 
-                            FontSize="25" Height="50" Width="50" 
-                            Content="&#xE768;" Background="Gray" Click="Button_Click_1"/>
                     </GridView>
                     <!--#region AddNewSongView Ahsan-->
                     <!-- Appears on the right side of the page and shows the user
@@ -131,31 +179,72 @@
                              Padding="5"/>
 
                             <!--Enter song artist-->
-                            <TextBlock Text="Enter artist name:" 
-                               Padding="5"/>
+                            <TextBlock Text="Enter artist name:" Padding="5"/>
                             <TextBox x:Name="SongArtist_UserInput"
                              PlaceholderText="Artist"
                              Padding="5"/>
 
                             <!--Enter song path-->
-                            <TextBlock Text="Enter path:" 
-                               Padding="5"/>
+                            <TextBlock Text="Selected song path:" Padding="5"/>
                             <TextBox x:Name="SongPath_UserInput"
-                             PlaceholderText="SongPath"
-                             Padding="5"/>
-
-
+                                     PlaceholderText="SongPath"
+                                     Padding="5"/>
+                            <TextBlock Text="Add Image:" Padding="5"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="ImagePath_UserInput" Width="150"
+                                     PlaceholderText="ImagePath"
+                                     Padding="5"/>
+                                <Button x:Name="AddImageButton"
+                                    Content="Browse"
+                                    Click="AddImageButton_Click"
+                                    Padding="5"/>
+                            </StackPanel>
                             <!--Save button for import song-->
                             <Button x:Name="SongSaveButton"
-                            Content="Add Song"
-                            Click="SongSaveButton_Click"
-                            Padding="5">
-                            </Button>
+                                    Content="Save Song"
+                                    Click="SongSaveButton_Click" Margin="0,5,5,5"
+                                    Padding="5"/>
                         </StackPanel>
                     </StackPanel>
                     <!--#endregion-->
-                </Grid>                
-            </SplitView.Content>            
-        </SplitView>        
+                    <!--#region SearchView Ahsan-->
+                    <!-- Appears on the right side of the page and shows the user
+                    option to import search songs by property. Collapsed/hidden by default -->
+                    <StackPanel x:Name="SearchView"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Orientation="Vertical"
+                        Visibility="Collapsed">
+                        <StackPanel Orientation="Vertical"
+                            Margin="5"
+                            HorizontalAlignment="Center">
+                            <!--Search songs by artist-->
+                            <TextBlock Text="Search songs by artist:" Padding="5"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="ArtistName_UserInput" Width="150"
+                                     PlaceholderText="Artist"
+                                     Padding="5"/>
+                                <Button x:Name="SearchByArtist"
+                                    Content="Search"
+                                    Click="SearchByArtist_Click"
+                                    Padding="5"/>
+                            </StackPanel>
+                            <!--Search songs by title-->
+                            <TextBlock Text="Search songs by title:" Padding="5"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="Title_UserInput" Width="150"
+                                     PlaceholderText="Title"
+                                     Padding="5"/>
+                                <Button x:Name="SearchByTitle"
+                                    Content="Search"
+                                    Click="SearchByTitle_Click"
+                                    Padding="5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--#endregion-->
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

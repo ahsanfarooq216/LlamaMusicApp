@@ -20,26 +20,25 @@ namespace LlamaMusicApp
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Login : Page
+    public sealed partial class EditInfo : Page
     {
-        public Login()
+        public EditInfo()
         {
             this.InitializeComponent();
         }
-
-        private void SignInButton_Click(object sender, RoutedEventArgs e)
+        private void SongSaveButton_Click(object sender, RoutedEventArgs e)
         {
+            //Input from the user
+            // TextBox textbox = new TextBox();
 
-        }
+            string name = SongTitle_UserInput.Text;
+            string artist = SongArtist_UserInput.Text;
+            // textbox.PlaceholderText = name;
+            // base.OnNavigatedTo(e);
+            //SongTitle_UserInput.Text = "Sample text received";
 
-        private void SignUpButton_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
-        private void Continue_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
         }
     }
 }

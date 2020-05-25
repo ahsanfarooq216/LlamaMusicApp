@@ -46,10 +46,10 @@ namespace LlamaMusicApp.Model
         private static List<Song> GetSampleMusic()
         {
             var sampleSongs = new List<Song>();
-            sampleSongs.Add(new Song("derek", "annalise", $"/Assets/SampleMusic/Derek_Clegg_-_Annalise.mp3"));
-            sampleSongs.Add(new Song("derek", "get us there", $"/Assets/SampleMusic/Derek_Clegg_-_Ill_Almost_Get_Us_There.mp3"));
-            sampleSongs.Add(new Song("Jahzzar", "siesta", $"/Assets/SampleMusic/Jahzzar_-_Siesta.mp3"));
-            sampleSongs.Add(new Song("Monplaisir", "estampe galactus", $"/Assets/SampleMusic/Monplaisir_-_Estampe_Galactus_Barbare_Epaul_Giraffe_Ennui.mp3"));
+            sampleSongs.Add(new Song("Derek", "Annalise", $"/Assets/SampleMusic/Derek_Clegg_-_Annalise.mp3"));
+            sampleSongs.Add(new Song("Derek", "Get us there", $"/Assets/SampleMusic/Derek_Clegg_-_Ill_Almost_Get_Us_There.mp3"));
+            sampleSongs.Add(new Song("Jahzzar", "Siesta", $"/Assets/SampleMusic/Jahzzar_-_Siesta.mp3"));
+            sampleSongs.Add(new Song("Monplaisir", "Estampe", $"/Assets/SampleMusic/Monplaisir_-_Estampe_Galactus_Barbare_Epaul_Giraffe_Ennui.mp3"));
             return sampleSongs;
         }
     }
